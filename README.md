@@ -10,7 +10,7 @@
    - `.unsqueeze()`: Add dimensions to tensors
    - `.squeeze()`: Remove single-dimensional entries from tensor shape
 
-2.  [**Tensor Mathematical Operations**](#tensor-mathematical-operations)
+2. [**Tensor Mathematical Operations**](#tensor-mathematical-operations)
    - `torch.matmul()`: Matrix multiplication
    - `torch.bmm()`: Batch matrix multiplication
    - `.transpose()`: Swap tensor dimensions
