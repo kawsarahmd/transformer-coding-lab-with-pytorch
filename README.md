@@ -1,7 +1,7 @@
 # PyTorch Functions for Building Transformers: From Basics to Advanced
 
 ## Foundational Tensor Operations
-1. **Tensor Creation and Manipulation**
+1. [**Tensor Creation and Manipulation**](#tensor-creation-and-manipulation)
    - `torch.tensor()`: Create tensors from existing data
    - `torch.zeros()`, `torch.ones()`: Create tensors filled with zeros or ones
    - `torch.randn()`: Create tensors with random values from normal distribution
