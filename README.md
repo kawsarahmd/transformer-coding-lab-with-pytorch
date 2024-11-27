@@ -10,7 +10,7 @@
    - `.unsqueeze()`: Add dimensions to tensors
    - `.squeeze()`: Remove single-dimensional entries from tensor shape
 
-2. **Tensor Mathematical Operations**
+2.  [**Tensor Mathematical Operations**](#tensor-mathematical-operations)
    - `torch.matmul()`: Matrix multiplication
    - `torch.bmm()`: Batch matrix multiplication
    - `.transpose()`: Swap tensor dimensions
@@ -259,3 +259,142 @@ Squeezed Tensor Shape: torch.Size([3, 5])
 | `.reshape()` | Reshape tensor (handles non-contiguous memory) |
 | `.unsqueeze()` | Add single-dimensional entries to tensor shape |
 | `.squeeze()` | Remove single-dimensional entries from tensor shape |
+
+
+
+
+
+**Tensor Mathematical Operations**
+
+### 1. `torch.matmul()`: Matrix Multiplication
+
+```python
+import torch
+
+# Example
+tensor1 = torch.tensor([[1, 2], [3, 4]])
+tensor2 = torch.tensor([[5, 6], [7, 8]])
+result = torch.matmul(tensor1, tensor2)
+
+print("Result of Matrix Multiplication:\n", result)
+```
+
+**Output:**
+```
+Result of Matrix Multiplication:
+ tensor([[19, 22],
+         [43, 50]])
+```
+
+**How it works under the hood:**
+- Computes the matrix product of two tensors
+- Inner dimensions must match for multiplication
+- Resulting tensor has dimensions of outer input matrix dimensions
+- Does not automatically broadcast tensors
+
+### 2. `torch.bmm()`: Batch Matrix Multiplication
+
+```python
+# Example
+batch1 = torch.randn(10, 3, 4)
+batch2 = torch.randn(10, 4, 5)
+result = torch.bmm(batch1, batch2)
+
+print("Batch Matrix Multiplication Result:\n", result.size())
+```
+
+**Output:**
+```
+Batch Matrix Multiplication Result:
+ torch.Size([10, 3, 5])
+```
+
+**How it works under the hood:**
+- Performs matrix multiplication over batches of matrices
+- Each matrix in the batch is multiplied independently
+- Requires both input tensors to be 3D
+- Batch sizes must match across both tensors
+
+### 3. `.transpose()`: Swap Tensor Dimensions
+
+```python
+# Example
+tensor = torch.tensor([[1, 2], [3, 4]])
+transposed_tensor = tensor.transpose(0, 1)
+
+print("Transposed Tensor:\n", transposed_tensor)
+```
+
+**Output:**
+```
+Transposed Tensor:
+ tensor([[1, 3],
+         [2, 4]])
+```
+
+**How it works under the hood:**
+- Swaps specified dimensions of the tensor
+- Crucial for reshaping tensors for specific operations
+- Provides a quick way to change tensor orientation
+
+### 4. `torch.sum()`: Sum Tensor Elements
+
+```python
+# Example
+tensor = torch.tensor([[1, 2], [3, 4]])
+sum_result = torch.sum(tensor)
+
+print("Sum of Tensor Elements:", sum_result)
+```
+
+**Output:**
+```
+Sum of Tensor Elements: 10
+```
+
+**How it works under the hood:**
+- Calculates the sum of all elements in the tensor
+- Can perform summation over specific dimensions
+- Useful for reducing tensor dimensionality
+
+### 5. `torch.mean()`: Calculate Mean of Tensor
+
+```python
+# Example
+tensor = torch.tensor([[1.0, 2.0], [3.0, 4.0]])
+mean_result = torch.mean(tensor)
+
+print("Mean of Tensor:", mean_result)
+```
+
+**Output:**
+```
+Mean of Tensor: 2.5
+```
+
+**How it works under the hood:**
+- Calculates the arithmetic mean of tensor elements
+- Can compute mean across specified dimensions
+- Handles both integer and floating-point tensors
+
+### 6. `torch.softmax()`: Apply Softmax Function
+
+```python
+# Example
+tensor = torch.tensor([2.0, 1.0, 0.1])
+softmax_result = torch.softmax(tensor, dim=0)
+
+print("Softmax Result:", softmax_result)
+```
+
+**Output:**
+```
+Softmax Result: tensor([0.6590, 0.2424, 0.0986])
+```
+
+**How it works under the hood:**
+- Applies the softmax function along a specified dimension
+- Converts a vector of values into a probability distribution
+- Ensures output values sum to 1
+- Commonly used in machine learning for classification tasks
+
