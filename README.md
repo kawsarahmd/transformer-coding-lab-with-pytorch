@@ -264,7 +264,7 @@ Squeezed Tensor Shape: torch.Size([3, 5])
 
 
 
-**Tensor Mathematical Operations**
+## Tensor Mathematical Operations
 
 ### 1. `torch.matmul()`: Matrix Multiplication
 
