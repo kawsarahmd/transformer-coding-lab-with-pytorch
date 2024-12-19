@@ -264,9 +264,7 @@ tensor([[3, 7, 1, 9],
         [5, 6, 3, 7]])
 ```
 
-**How it works under the hood:**
-- Removes dimensions with size 1
-- Updates tensor's metadata without modifying underlying data
+
 
 ## Summary of Operations
 
