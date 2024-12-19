@@ -8,7 +8,8 @@
    - `.shape`: Get tensor dimensions
    - `.view()` or `.reshape()`: Reshape tensors
    - `.unsqueeze()`: Add dimensions to tensors
-   - `.squeeze()`: Remove single-dimensional entries from tensor shape
+   - `.squeeze()`: Remove single-dimensional entries from tensor shape 
+   - `.torch.randint()`: The `torch.randint` function in PyTorch is used to generate a tensor filled with random integers within a specified range.
 
 2. [**Tensor Mathematical Operations**](#tensor-mathematical-operations)
    - `torch.matmul()`: Matrix multiplication
@@ -240,6 +241,27 @@ print("Squeezed Tensor Shape:", squeezed_tensor.shape)
 ```
 Original Tensor Shape: torch.Size([1, 3, 1, 5])
 Squeezed Tensor Shape: torch.Size([3, 5])
+```
+
+**How it works under the hood:**
+- Removes dimensions with size 1
+- Updates tensor's metadata without modifying underlying data
+
+## 8. `randint()`: function in PyTorch is used to generate a tensor filled with random integers within a specified range.
+
+```python
+import torch
+
+# Generate a tensor of shape (3, 4) with random integers between 0 (inclusive) and 10 (exclusive)
+random_tensor = torch.randint(0, 10, (3, 4))
+print(random_tensor)
+```
+
+**Output:**
+```
+tensor([[3, 7, 1, 9],
+        [4, 2, 8, 0],
+        [5, 6, 3, 7]])
 ```
 
 **How it works under the hood:**
